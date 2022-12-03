@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'vazir-light';
+    src: url('../../fonts/vazir-font-v16.1.0/Vazir-Light.woff2');
+}
+
+.OrderHistory {
+    font-family: 'vazir-light' ;
+    & h6 {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}

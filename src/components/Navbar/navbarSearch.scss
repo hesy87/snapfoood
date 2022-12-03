@@ -8,6 +8,8 @@
   font-family: "vazir-light";
   & input {
     background: $navbar-search-background;
-    z-index: 99999;
+  }
+  & .top-35 {
+    top: 35%;
   }
 }

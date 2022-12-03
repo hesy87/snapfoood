@@ -1,0 +1,7 @@
+@import './variable';
+
+.NavbarAdress{
+ & .chevron {
+        color: $main-color;
+    }
+}

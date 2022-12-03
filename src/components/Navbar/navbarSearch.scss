@@ -1,0 +1,13 @@
+@import "./variable";
+@font-face {
+  font-family: "vazir-light";
+  src: url("../../fonts/vazir-font-v16.1.0/Vazir-Light.woff2");
+}
+
+.NavbarSearch {
+  font-family: "vazir-light";
+  & input {
+    background: $navbar-search-background;
+    z-index: 99999;
+  }
+}

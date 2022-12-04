@@ -8,9 +8,9 @@ import OrderHistory from './orderHistory'
 const Navbar = () => {
     return ( 
     <>
-    <div className="container-fluid">
+    <div className="container-fluid Navbar">
         <div className="row">
-            <div className="col d-flex justify-content-center align-items-baseline">
+            <div className="col d-flex justify-content-center align-items-center">
                 <div className='col-1 mx-2 my-1'><img src={logo} alt="logo"/></div>
                 <div className='col-3'><NavbarAdress/></div>
                 <div className='col-5'><NavbarSearch/></div>

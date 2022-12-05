@@ -11,7 +11,7 @@ const Body = () => {
   return (
     <>
       <BreadCrumb />
-      <div className="container">
+      <div className="container-xxl">
         <div className="row">
           <div className="col-3">
             <ReasturantIntroduction />

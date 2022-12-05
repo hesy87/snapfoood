@@ -18,6 +18,64 @@
     text-align: initial;
   }
   & .basket {
-color :  rgb(166, 170, 173);
+    color: rgb(166, 170, 173);
+  }
+}
+
+.shoppingBagFull {
+  font-family: "vazir-regular";
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  padding: 1rem 1rem 0.75rem;
+  background-color: rgb(255, 255, 255);
+  border: 0.0625rem solid rgba(58, 61, 66, 0.06);
+  border-radius: 0.5rem;
+  & div span {
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    color: rgb(83, 92, 88);
+    text-align: initial;
+  }
+  & button {
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: inline-flex;
+    cursor: pointer;
+    transition: all 150ms ease-out 0s;
+    box-sizing: border-box;
+    min-width: auto;
+    width: 2rem;
+    height: 2rem;
+    border: 0.09375rem solid transparent;
+    border-radius: 50%;
+    color: rgb(255, 0, 166);
+    background-color: transparent;
+    background-clip: padding-box;
+    box-shadow: none;
+    font-family: IRANSansMobile;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  & .selectedFood {
+    & span {
+      font-weight: 700;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      width: auto;
+      height: auto;
+      padding: 0px;
+      margin: 0px;
+      display: inline-block;
+      color: rgb(58, 61, 66);
+      text-align: initial;
+    }
   }
 }

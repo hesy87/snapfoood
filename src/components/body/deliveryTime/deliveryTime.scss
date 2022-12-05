@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'vazir-regular';
+    src: url('../../../fonts/vazir-font-v16.1.0/Vazir.woff');
+}
+
+.DeliveryTime {
+  margin-bottom: 0.5rem;
+  padding: 0.875rem 0.75rem;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(58, 61, 66, 0.06);
+  border-radius: 0.5rem;
+  box-shadow: none;
+  & p {
+    font-family: 'vazir-regular';
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    color: rgb(58, 61, 66);
+    text-align: initial;
+  }
+  & .chevron {
+   color: #008542;
+   cursor: pointer;
+  }
+}

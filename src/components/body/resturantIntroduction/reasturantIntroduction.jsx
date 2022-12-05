@@ -1,15 +1,27 @@
+import pic from "../../img/resturantIntroduction/pizaro.png";
+import "./reasturantIntroduction.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo,faStar } from "@fortawesome/free-solid-svg-icons";
+
 const ReasturantIntroduction = () => {
   return (
-      <div className="card bg-danger mt-5">
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a className="btn btn-primary">Go somewhere</a>
+    <div className="ReasturantIntroduction mt-5">
+      <div className="d-flex">
+        <img src={pic} alt="" />
+        <div>
+          <div className="d-flex mt-2">
+            <FontAwesomeIcon className="star me-3" icon={faStar} />
+            <span className="rate mx-2">۴.۴</span>
+            <span className="commnet">(۳۲ نظر)</span>
+          </div>
+          <p className="me-3 mt-3">پیزارو</p>
         </div>
       </div>
+      <button className="btn mt-3">
+        <FontAwesomeIcon className="ms-2" icon={faCircleInfo} />
+        اطلاعات و نظرات
+      </button>
+    </div>
   );
 };
 

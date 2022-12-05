@@ -1,9 +1,7 @@
-const BreadCrumb = () => {
-    return ( <p>سنپ فود
+import "./breadcrumb.scss";
 
-        رستوران های تهران
-        
-        کبابسرای تک</p> );
-}
- 
+const BreadCrumb = () => {
+  return <p className="me-2">اسنپ فود رستوران های تهران پیزارو</p>;
+};
+
 export default BreadCrumb;

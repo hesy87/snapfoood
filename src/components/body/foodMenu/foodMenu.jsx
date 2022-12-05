@@ -1,33 +1,31 @@
+import "./foodMenu.scss";
+import pic from "../../img/foodMenu/1.jpeg";
+
 const FoodMenu = () => {
   return (
-    <div
-      className="card bg-danger mt-5"
-    >
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a className="btn btn-primary">Go somewhere</a>
+    <>
+      <div className="FoodMenu mt-5 ">
+        <p className="mt-5 text-center">پیتزا ایتالیایی</p>
+        <div className="container text-center">
+          <div className="row row-cols-2">
+            <div className="col">
+              <div>
+                <div>
+                  <span>پیتزا رست بیف ایتالیایی</span>
+                  <span>
+                    یک برش به ابعاد (۱۴*۲۵ و ۱۷۰ گرم)خمیر پیتزا دست ساز
+                    ایتالیایی، سس گوجه فرنگی، ۲۰ گرم گوشت گوساله ریش ریش شده، سس
+                    گریوی، پیاز کارامل، زیتون سیاه، پنیر پیتزا مخصوص
+                  </span>
+                </div>
+                <img src={pic} alt="" />
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

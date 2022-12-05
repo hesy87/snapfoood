@@ -1,14 +1,15 @@
+import './menuBar.scss'
+
 const MenuBar = () => {
   return (
-    <div className="card bg-danger mt-5" style={{height : '20rem' }}>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-    </div>
+    <nav className="MenuBar mt-5 d-flex flex-column">
+        <p className='text-start'>پیتزا ایتالیایی</p>
+        <p className='text-start'>سالاد</p>
+        <p className='text-start'>پیش غذا</p>
+        <p className='text-start'>کیک و دسر</p>
+        <p className='text-start'>نوشیدنی</p>
+        <p className='text-start'>سرویس اضافه</p>
+    </nav>
   );
 };
 

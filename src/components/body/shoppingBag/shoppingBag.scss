@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "vazir-regular";
+  src: url("../../../fonts/vazir-font-v16.1.0/Vazir.woff");
+}
+
+.shoppingBag {
+  & p {
+    font-family: "vazir-regular";
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    color: rgb(166, 170, 173);
+    text-align: initial;
+  }
+  & .basket {
+color :  rgb(166, 170, 173);
+  }
+}

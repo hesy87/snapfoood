@@ -50,24 +50,24 @@
   }
   & .addToCard {
     &:hover {
-        background-color: rgb(249, 250, 251);
-        transition: all 0.3s ease 0s;
+      background-color: rgb(249, 250, 251);
+      transition: all 0.3s ease 0s;
     }
-    &>div>span {
-        font-family: "vazir-regular";
-    font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    width: auto;
-    height: auto;
-    padding: 0px;
-    margin: 0px;
-    display: inline-block;
-    color: rgb(58, 61, 66);
-    text-align: initial;
+    & > div > span {
+      font-family: "vazir-regular";
+      font-weight: 400;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      width: auto;
+      height: auto;
+      padding: 0px;
+      margin: 0px;
+      display: inline-block;
+      color: rgb(58, 61, 66);
+      text-align: initial;
     }
-    &>div>span:nth-child(2) {
-        font-weight: bold;
+    & > div > span:nth-child(2) {
+      font-weight: bold;
     }
     & button {
       height: 2.3125rem;

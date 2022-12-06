@@ -1,14 +1,14 @@
-import "./deliveryTime.scss";
+import styles from "./deliveryTime.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 const DeliveryTime = () => {
   return (
-    <div className="DeliveryTime bg-white mt-5 d-flex align-items-center justify-content-around">
-      <FontAwesomeIcon className="clock me-3" icon={faClock} />
+    <div className={`${styles.DeliveryTime} bg-white mt-5 d-flex align-items-center justify-content-around`}>
+      <FontAwesomeIcon className={`${styles.clock} me-3`} icon={faClock} />
       <p>دریافت در سریع‌ترین زمان ممکن</p>
-      <FontAwesomeIcon className="chevron me-3" icon={faChevronDown} />
+      <FontAwesomeIcon className={`${styles.chevron} me-3`} icon={faChevronDown} />
     </div>
   );
 };

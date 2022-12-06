@@ -8,6 +8,8 @@ import choritso from "../../img/foodMenu/choritsoitalia.jpeg";
 import vegetable from "../../img/foodMenu/vegetableitalia.jpeg";
 import margarita from "../../img/foodMenu/margaritaitalia.jpeg";
 
+import ShoppingButton from '../shoppingBag/shoppingButton'
+
 const italianPizza = [
   {
     id: "p1",
@@ -118,7 +120,10 @@ const FoodMenu = () => {
                     <span>{item.unit}</span>
                     <span>{`${item.price} ${item.currency}`}</span>
                   </div>
-                  <button className="ms-2">افزودن</button>
+                  <div className="ms-2">
+                    <ShoppingButton/>
+                  {/* <button className={styles.Add}>افزودن</button> */}
+                    </div>
                 </div>
               </div>
             ))}

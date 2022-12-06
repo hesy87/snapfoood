@@ -1,5 +1,4 @@
 import styles from "./foodMenu.module.scss";
-
 import rostbeef from "../../img/foodMenu/rostbeefitalia.jpeg";
 import mexic from "../../img/foodMenu/rostbeefmexic.jpeg";
 import chicken from "../../img/foodMenu/chickenalferedoitalia.jpeg";
@@ -117,7 +116,7 @@ const FoodMenu = () => {
                 <div className={`${styles.addToCard} pt-2 pb-4 d-flex justify-content-between`}>
                   <div className="pe-2 d-flex flex-column">
                     <span>{item.unit}</span>
-                    <span>{`${item.price} تومان`}</span>
+                    <span>{`${item.price} ${item.currency}`}</span>
                   </div>
                   <button className="ms-2">افزودن</button>
                 </div>

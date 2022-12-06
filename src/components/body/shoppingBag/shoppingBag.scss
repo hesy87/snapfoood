@@ -90,28 +90,7 @@
         color: rgb(58, 61, 66);
         text-align: initial;
       }
-      & button {
-        -webkit-box-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        align-items: center;
-        display: inline-flex;
-        cursor: pointer;
-        transition: all 150ms ease-out 0s;
-        box-sizing: border-box;
-        min-width: auto;
-        width: 2rem;
-        height: 2rem;
-        border: 0.09375rem solid rgba(255, 0, 166, 0.06);
-        border-radius: 50%;
-        color: rgb(255, 0, 166);
-        background-color: rgb(255, 255, 255);
-        background-clip: padding-box;
-        box-shadow: rgb(58 61 66 / 6%) 0px 1px 0px,
-          rgb(0 0 0 / 20%) 0px 4px 16px -8px;
-        font-size: 0.875rem;
-        font-weight: 700;
-      }
+
     }
   }
   .bill {

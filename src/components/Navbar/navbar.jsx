@@ -1,4 +1,4 @@
-import './navbar.scss'
+import styles from './navbar.module.scss'
 import logo from  '../img/navbar/Untitled.png' 
 import NavbarAdress from './navbarAdress';
 import NavbarSearch from './navbarSearch';
@@ -8,7 +8,7 @@ import OrderHistory from './orderHistory'
 const Navbar = () => {
     return ( 
     <>
-    <div className="container-fluid Navbar">
+    <div className={`container-fluid ${styles.Navbar} position-sticky`}>
         <div className="row">
             <div className="col d-flex justify-content-center align-items-center">
                 <div className='col-1 mx-2 my-1'><img src={logo} alt="logo"/></div>

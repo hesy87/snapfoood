@@ -22,8 +22,8 @@ const ShoppingBag = () => {
               <span>سبد خرید</span>
               <span className="me-2">(۲)</span>
             </div>
-            <button>
-              <FontAwesomeIcon className="trash" icon={faTrashCan} />
+            <button className="trash" >
+              <FontAwesomeIcon icon={faTrashCan} />
             </button>
           </div>
         </div>

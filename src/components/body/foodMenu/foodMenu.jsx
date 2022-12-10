@@ -8,7 +8,7 @@ import choritso from "../../img/foodMenu/choritsoitalia.jpeg";
 import vegetable from "../../img/foodMenu/vegetableitalia.jpeg";
 import margarita from "../../img/foodMenu/margaritaitalia.jpeg";
 
-import ShoppingButton from '../shoppingBag/shoppingButton'
+import ShoppingButton from "../shoppingBag/shoppingButton";
 
 const italianPizza = [
   {
@@ -100,30 +100,31 @@ const FoodMenu = () => {
         <p className="mt-5 text-center">پیتزا ایتالیایی</p>
         <div className="container text-center">
           <div className="row row-cols-2">
-            {italianPizza.map((item) => ( 
+            {italianPizza.map((item) => (
               <div className={`${styles.foodCard} p-0 col`}>
                 <div className="d-flex py-3 pe-2">
                   <div className="d-flex flex-column ms-1 col-7">
                     <span className={`${styles.foodTitle} mb-2`}>
-                     {item.name}
+                      {item.name}
                     </span>
                     <span className={styles.foodDiscription}>
-                     {item.discription}
+                      {item.discription}
                     </span>
                   </div>
                   <div className="col-5 ps-2">
                     <img className="img-fluid" src={item.pic} />
                   </div>
                 </div>
-                <div className={`${styles.addToCard} pt-2 pb-4 d-flex justify-content-between`}>
+                <div
+                  className={`${styles.addToCard} pt-2 pb-4 d-flex justify-content-between`}
+                >
                   <div className="pe-2 d-flex flex-column">
                     <span>{item.unit}</span>
                     <span>{`${item.price} ${item.currency}`}</span>
                   </div>
                   <div className="ms-2">
-                    <ShoppingButton/>
-                  {/* <button className={styles.Add}>افزودن</button> */}
-                    </div>
+                    <ShoppingButton />
+                  </div>
                 </div>
               </div>
             ))}

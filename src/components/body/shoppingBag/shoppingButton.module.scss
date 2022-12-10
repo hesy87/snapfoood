@@ -1,10 +1,14 @@
 @font-face {
   font-family: 'vazir-regular';
-  src: url('../../../fonts/vazir-font-v16.1.0/Vazir.woff');
+  src: url("../../../fonts/vazir-font-v16.1.0/Vazir.woff");
 }
 
 
 .ShoppingButton {
+  & > span {
+    font-family: 'vazir-regular' !important;
+    font-weight: bold;
+  }
   font-family: 'vazir-regular';
   display: flex;
   align-items: center;
@@ -29,6 +33,11 @@
       rgb(0 0 0 / 20%) 0px 4px 16px -8px;
     font-size: 0.875rem;
     font-weight: 700;
+    &:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(224, 0, 150);
+      border-color: rgba(255, 0, 166, 0.06);
+    }
   }
   
 
@@ -79,7 +88,6 @@
   background-clip: padding-box;
   box-shadow: rgb(58 61 66 / 6%) 0px 1px 0px,
     rgb(0 0 0 / 20%) 0px 4px 16px -8px;
-  font-family: "vazir-regular";
   &:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(224, 0, 150);

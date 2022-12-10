@@ -101,7 +101,7 @@ const FoodMenu = () => {
         <div className="container text-center">
           <div className="row row-cols-2">
             {italianPizza.map((item) => (
-              <div className={`${styles.foodCard} p-0 col`}>
+              <div key={item.id} className={`${styles.foodCard} p-0 col`}>
                 <div className="d-flex py-3 pe-2">
                   <div className="d-flex flex-column ms-1 col-7">
                     <span className={`${styles.foodTitle} mb-2`}>

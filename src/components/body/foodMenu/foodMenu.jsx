@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useState,useContext } from "react";
+import OrderContext from "../../../context/selectedFood-context";
 import styles from "./foodMenu.module.scss";
 import rostbeef from "../../img/foodMenu/rostbeefitalia.jpeg";
 import mexic from "../../img/foodMenu/rostbeefmexic.jpeg";
@@ -96,21 +96,16 @@ const italianPizza = [
 ];
 
 const FoodMenu = (props) => {
-  const [orderCount, setOrderCount] = useState("");
-  const [orderId, setOrderId] = useState("");
-
-const findObject = () => {
-  let obj = italianPizza.find(item => item.id === orderId);
-  console.log(obj.name);
-}
-
-  const selectOrderCount = (orderCount, id) => {
-    setOrderCount(orderCount);
-    setOrderId(id);
+  const [OrderList,setOrderList] = useState(0);
+var orderList = []
+  const selectOrderId = (id) => {
+    let foodObject = italianPizza.find(item => item.id === id);
+    let orderArray = [foodObject.name , foodObject.price,foodObject.id,foodObject.currency]
+    orderList.push(orderArray)
+    setOrderList('orderList')
   };
   return (
-    <>
-    {findObject()}
+    <OrderContext.Provider value={OrderList}>
       <div className={`${styles.FoodMenu} mt-5 `}>
         <p className="mt-5 text-center">پیتزا ایتالیایی</p>
         <div className="container text-center">
@@ -139,7 +134,7 @@ const findObject = () => {
                   </div>
                   <div className="ms-2">
                     <ShoppingButton
-                      onSelectOrderCount={selectOrderCount}
+                      onSelectOrderId={selectOrderId}
                       itemId={item.id}
                     />
                   </div>
@@ -149,7 +144,7 @@ const findObject = () => {
           </div>
         </div>
       </div>
-    </>
+    </OrderContext.Provider>
   );
 };
 

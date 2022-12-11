@@ -1,5 +1,4 @@
 import {useContext} from 'react'
-import CartContext from '../../../context/selectedFood-context';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBasketShopping,
@@ -9,10 +8,10 @@ import {
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import "./shoppingBag.scss";
 import ShoppingButton from "./shoppingButton";
+import OrderContext from '../../../context/selectedFood-context';
 
 const ShoppingBag = (props) => {
- const cartCtx =  useContext(CartContext)
- const numberOfCartItems = cartCtx.item.length;
+ const orderCtx =  useContext(OrderContext)
   return (
     <>
       <div className=" d-none shoppingBag mt-5 d-flex flex-column justify-content-center align-items-center">
@@ -24,7 +23,7 @@ const ShoppingBag = (props) => {
           <div className="col d-flex justify-content-between">
             <div>
               <span>سبد خرید</span>
-              <span className="me-2">{numberOfCartItems}</span>
+              <span className="me-2">2</span>
             </div>
             <button className="trash" >
               <FontAwesomeIcon icon={faTrashCan} />

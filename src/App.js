@@ -2,16 +2,17 @@ import "./App.css";
 import Navbar from "./components/Navbar/navbar";
 import React from "react";
 import Body from "./components/body/body";
-import Cartprovider from "./context/cartProvider";
+import OrderContext from "./context/selectedFood-context";
+
 
 function App() {
   return (
-    <Cartprovider>
+    <OrderContext.Provider>
       <div className="App">
         <Navbar/>
       </div>
       <Body />
-    </Cartprovider>
+    </OrderContext.Provider>
   );
 }
 

@@ -6,17 +6,17 @@ import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 const ShoppingButton = (props) => {
-  let [orderCount, setAddOrder] = useState("");
+  let [orderCount, setAddOrder] = useState('');
 
   const minusHandler = (id) => {
     orderCount -= 1;
     setAddOrder(Number(orderCount));
-    props.onSelectOrderCount(orderCount,id);
+    props.onSelectOrderId(id);
   };
   const plusHandler = (id) => {
     orderCount += 1;
     setAddOrder(Number(orderCount));
-    props.onSelectOrderCount(orderCount,id);
+    props.onSelectOrderId(id);
   };
   const resetHandler = () => {
     orderCount = '';

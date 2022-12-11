@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 import styles from "./foodMenu.module.scss";
 import rostbeef from "../../img/foodMenu/rostbeefitalia.jpeg";
 import mexic from "../../img/foodMenu/rostbeefmexic.jpeg";
@@ -93,9 +95,22 @@ const italianPizza = [
   },
 ];
 
-const FoodMenu = () => {
+const FoodMenu = (props) => {
+  const [orderCount, setOrderCount] = useState("");
+  const [orderId, setOrderId] = useState("");
+
+const findObject = () => {
+  let obj = italianPizza.find(item => item.id === orderId);
+  console.log(obj.name);
+}
+
+  const selectOrderCount = (orderCount, id) => {
+    setOrderCount(orderCount);
+    setOrderId(id);
+  };
   return (
     <>
+    {findObject()}
       <div className={`${styles.FoodMenu} mt-5 `}>
         <p className="mt-5 text-center">پیتزا ایتالیایی</p>
         <div className="container text-center">
@@ -112,7 +127,7 @@ const FoodMenu = () => {
                     </span>
                   </div>
                   <div className="col-5 ps-2">
-                    <img className="img-fluid" src={item.pic} />
+                    <img className="img-fluid" src={item.pic} alt="foodPic" />
                   </div>
                 </div>
                 <div
@@ -123,7 +138,10 @@ const FoodMenu = () => {
                     <span>{`${item.price} ${item.currency}`}</span>
                   </div>
                   <div className="ms-2">
-                    <ShoppingButton />
+                    <ShoppingButton
+                      onSelectOrderCount={selectOrderCount}
+                      itemId={item.id}
+                    />
                   </div>
                 </div>
               </div>

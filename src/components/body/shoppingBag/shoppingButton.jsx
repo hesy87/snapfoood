@@ -5,27 +5,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
-const ShoppingButton = () => {
+const ShoppingButton = (props) => {
   let [orderCount, setAddOrder] = useState("");
 
-  const minusHandler = () => {
+  const minusHandler = (id) => {
     orderCount -= 1;
     setAddOrder(Number(orderCount));
+    props.onSelectOrderCount(orderCount,id);
   };
-  const plusHandler = () => {
+  const plusHandler = (id) => {
     orderCount += 1;
     setAddOrder(Number(orderCount));
+    props.onSelectOrderCount(orderCount,id);
   };
   const resetHandler = () => {
     orderCount = '';
     setAddOrder(orderCount);
   }
+
+
   return (
     <>
       {orderCount.length === 0 ? (
         <button
           onClick={() => {
-            plusHandler();
+            plusHandler(props.itemId);
           }}
           className={styles.Add}
         >
@@ -44,7 +48,7 @@ const ShoppingButton = () => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              plusHandler();
+              plusHandler(props.itemId);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />
@@ -56,7 +60,7 @@ const ShoppingButton = () => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              minusHandler();
+              minusHandler(props.itemId);
             }}
           >
             <FontAwesomeIcon icon={faMinus} />
@@ -66,7 +70,7 @@ const ShoppingButton = () => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              plusHandler();
+              plusHandler(props.itemId);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />

@@ -23,7 +23,7 @@ const Body = () => {
           <div className="col-3">
             <DeliveryTime />
             <CourierPrice/>
-            <ShoppingBag/>
+            <ShoppingBag />
           </div>
         </div>
       </div>

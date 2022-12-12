@@ -7,12 +7,12 @@ import OrderContext from "./context/selectedFood-context";
 
 function App() {
   return (
-    <OrderContext.Provider>
+    <>
       <div className="App">
         <Navbar/>
       </div>
       <Body />
-    </OrderContext.Provider>
+    </>
   );
 }
 

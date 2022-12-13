@@ -15,28 +15,27 @@ const ShoppingButton = (props) => {
 
   const plusHandler = (id) => {
     setOrderState({
-      OrderAmount: OrderState.OrderAmount ,
+      OrderAmount: OrderState.OrderAmount +1 ,
       OrderId: id,
     });
     console.log(OrderState);
   };
   const minusHandler = (id) => {
     setOrderState({
-      OrderAmount: OrderState.OrderAmount - 1,
+      OrderAmount: OrderState.OrderAmount -1,
       OrderId: id,
     });
-    console.log(OrderState);
   };
   const resetHandler = (id) => {
     setOrderState({ OrderAmount: "", OrderId: "" });
   };
-
+  
   return (
     <>
+    {console.log(OrderState)}
       {OrderState.OrderAmount === 0 ? (
         <button
           onClick={() => {
-            OrderState.OrderAmount +=1;
             plusHandler(props.item.id);
           }}
           className={styles.Add}
@@ -58,7 +57,6 @@ const ShoppingButton = (props) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              OrderState.OrderAmount +=1;
               plusHandler(props.item.id);
             }}
           >

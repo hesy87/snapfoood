@@ -1,37 +1,49 @@
-import React, { useState,useRef } from "react";
+import React, { useReducer } from "react";
 import styles from "./shoppingButton.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 const ShoppingButton = (props) => {
+  const [OrderState, setOrderState] = useReducer(
+    (state, updates) => ({ ...state, ...updates }),
+    {
+      OrderAmount: 0,
+      OrderId: "",
+    }
+  );
 
-  // const OrderAmount = useRef();
-
-  let [orderCount, setAddOrder] = useState('');
-
-  const minusHandler = (id) => {
-    setAddOrder(Number(orderCount - 1));
-  };
   const plusHandler = (id) => {
-    setAddOrder(Number(orderCount + 1));
+    setOrderState({
+      OrderAmount: OrderState.OrderAmount ,
+      OrderId: id,
+    });
+    console.log(OrderState);
+  };
+  const minusHandler = (id) => {
+    setOrderState({
+      OrderAmount: OrderState.OrderAmount - 1,
+      OrderId: id,
+    });
+    console.log(OrderState);
   };
   const resetHandler = (id) => {
-    setAddOrder('');
+    setOrderState({ OrderAmount: "", OrderId: "" });
   };
-  
+
   return (
     <>
-      {orderCount.length === 0 ? (
+      {OrderState.OrderAmount === 0 ? (
         <button
           onClick={() => {
+            OrderState.OrderAmount +=1;
             plusHandler(props.item.id);
           }}
           className={styles.Add}
         >
           افزودن
         </button>
-      ) : orderCount === 1 ? (
+      ) : OrderState.OrderAmount === 1 ? (
         <div className={styles.ShoppingButton}>
           <button
             className={styles.removeShop}
@@ -42,11 +54,12 @@ const ShoppingButton = (props) => {
             <FontAwesomeIcon icon={faTrashCan} />
           </button>
 
-          <span className="mx-3">{orderCount}</span>
+          <span className="mx-3">{OrderState.OrderAmount}</span>
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              plusHandler(props.item);
+              OrderState.OrderAmount +=1;
+              plusHandler(props.item.id);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />
@@ -57,17 +70,17 @@ const ShoppingButton = (props) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              minusHandler(props.item);
+              minusHandler(props.item.id);
             }}
           >
             <FontAwesomeIcon icon={faMinus} />
           </button>
 
-          <span className="mx-3">{orderCount}</span>
+          <span className="mx-3">{OrderState.OrderAmount}</span>
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              plusHandler(props.item);
+              plusHandler(props.item.id);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />

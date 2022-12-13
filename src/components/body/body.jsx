@@ -1,20 +1,23 @@
+import React,{useState} from "react";
 import "./body.scss";
-import { useState } from "react";
 import BreadCrumb from "./breadcrumb/breadcrumb";
 import MenuBar from "./menuBar/menuBar";
 import FoodMenu from "./foodMenu/foodMenu";
 import ReasturantIntroduction from "./resturantIntroduction/reasturantIntroduction";
-import ShoppingBag from './shoppingBag/shoppingBag';
-import DeliveryTime from './deliveryTime/deliveryTime';
-import CourierPrice from './courier/courierPrice';
+import ShoppingBag from "./shoppingBag/shoppingBag";
+import DeliveryTime from "./deliveryTime/deliveryTime";
+import CourierPrice from "./courier/courierPrice";
+import OrderContext from "../../context/selectedFood-context";
 
-const Body = () => {
-  const [orderList,setOrderList] = useState()
-  const selectOrderList = (orderList) => {
-    setOrderList(orderList)
-}
+const Body = (props) => {
+  
+  const [data,setData] = useState([])
+  const sendData = (item) => {
+    setData(item[0].name)
+  
+  }
   return (
-    <>
+    <OrderContext.Provider value={data}>
       <BreadCrumb />
       <div className="container-xxl">
         <div className="row">
@@ -23,16 +26,16 @@ const Body = () => {
             <MenuBar />
           </div>
           <div className="col-6">
-            <FoodMenu onSelectOrderList={selectOrderList}/>
+            <FoodMenu onContext={sendData}/>
           </div>
           <div className="col-3">
             <DeliveryTime />
-            <CourierPrice/>
-            <ShoppingBag selectOrderList={orderList}/>
+            <CourierPrice />
+            <ShoppingBag />
           </div>
         </div>
       </div>
-    </>
+    </OrderContext.Provider>
   );
 };
 

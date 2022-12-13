@@ -1,5 +1,4 @@
 import React from "react";
-import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBasketShopping,
@@ -9,13 +8,11 @@ import {
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import "./shoppingBag.scss";
 import ShoppingButton from "./shoppingButton";
+import OrderContext from "../../../context/selectedFood-context";
+import { useContext } from "react";
 
-const ShoppingBag = (props) => {
-let [order,setorder] = useState('')
-  const selectOrderCount = (orderCount) => {
-    setorder(orderCount)
-    console.log(order);
-  };
+const ShoppingBag = () => {
+  const ctx = useContext(OrderContext);
   return (
     <>
       <div className=" d-none shoppingBag mt-5 d-flex flex-column justify-content-center align-items-center">
@@ -27,7 +24,7 @@ let [order,setorder] = useState('')
           <div className="col d-flex justify-content-between">
             <div>
               <span>سبد خرید</span>
-              <span className="me-2">{}</span>
+              <span className="me-2"></span>
             </div>
             <button className="trash">
               <FontAwesomeIcon icon={faTrashCan} />
@@ -36,10 +33,10 @@ let [order,setorder] = useState('')
         </div>
         <div className="row selectedFood mt-2">
           <div className="col d-flex flex-column">
-            <span>پیتزا دونر استیک ۳۰ سانتی متری</span>
+            <span>{ctx}</span>
             <div className="d-flex justify-content-between my-3">
               <span>۲۰۲,۰۰۰ تومان</span>
-              <ShoppingButton onSelectOrderCount={selectOrderCount} />
+              <ShoppingButton />
             </div>
             <div className="bill">
               <div className="mt-3">

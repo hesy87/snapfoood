@@ -1,32 +1,31 @@
-import React, { useState } from "react";
-
+import React, { useState,useRef } from "react";
 import styles from "./shoppingButton.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
-let array = [];
+
 const ShoppingButton = (props) => {
-  let [orderCount, setAddOrder] = useState("");
-  let [OrderList, setOrderList] = useState([]);
-  
-  const minusHandler = (name) => {
+
+  // const OrderAmount = useRef();
+
+  let [orderCount, setAddOrder] = useState('');
+
+  const minusHandler = (id) => {
     setAddOrder(Number(orderCount - 1));
   };
-  const plusHandler = (name) => {
+  const plusHandler = (id) => {
     setAddOrder(Number(orderCount + 1));
-    array.push(name);
-    setOrderList(array);
-    props.onSelectOrderCount(OrderList);
   };
-  const resetHandler = () => {
-    setAddOrder(orderCount = "");
+  const resetHandler = (id) => {
+    setAddOrder('');
   };
+  
   return (
     <>
       {orderCount.length === 0 ? (
         <button
           onClick={() => {
-            plusHandler(props.item.name);
+            plusHandler(props.item.id);
           }}
           className={styles.Add}
         >
@@ -47,7 +46,7 @@ const ShoppingButton = (props) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              plusHandler(props.item.name);
+              plusHandler(props.item);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />
@@ -58,7 +57,7 @@ const ShoppingButton = (props) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              minusHandler(props.item.name);
+              minusHandler(props.item);
             }}
           >
             <FontAwesomeIcon icon={faMinus} />
@@ -68,7 +67,7 @@ const ShoppingButton = (props) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              plusHandler(props.item.name);
+              plusHandler(props.item);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />

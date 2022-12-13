@@ -2,6 +2,8 @@ import pic from "../../img/resturantIntroduction/pizaro.png";
 import "./reasturantIntroduction.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo,faStar } from "@fortawesome/free-solid-svg-icons";
+import OrderContext from "../../../context/selectedFood-context";
+import { useContext } from 'react';
 
 const ReasturantIntroduction = () => {
   return (

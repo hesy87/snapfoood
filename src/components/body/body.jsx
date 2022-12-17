@@ -7,17 +7,12 @@ import ReasturantIntroduction from "./resturantIntroduction/reasturantIntroducti
 import ShoppingBag from "./shoppingBag/shoppingBag";
 import DeliveryTime from "./deliveryTime/deliveryTime";
 import CourierPrice from "./courier/courierPrice";
-import OrderContext from "../../context/selectedFood-context";
+
 
 const Body = (props) => {
-  
-  const [data,setData] = useState([])
-  const sendData = (item) => {
-    setData(item[0].name)
-  
-  }
+
   return (
-    <OrderContext.Provider value={data}>
+    <>
       <BreadCrumb />
       <div className="container-xxl">
         <div className="row">
@@ -26,7 +21,7 @@ const Body = (props) => {
             <MenuBar />
           </div>
           <div className="col-6">
-            <FoodMenu onContext={sendData}/>
+            <FoodMenu/>
           </div>
           <div className="col-3">
             <DeliveryTime />
@@ -35,7 +30,7 @@ const Body = (props) => {
           </div>
         </div>
       </div>
-    </OrderContext.Provider>
+    </>
   );
 };
 

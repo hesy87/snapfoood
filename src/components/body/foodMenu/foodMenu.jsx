@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React, { useState, useReducer } from "react";
 import styles from "./foodMenu.module.scss";
 import rostbeef from "../../img/foodMenu/rostbeefitalia.jpeg";
 import mexic from "../../img/foodMenu/rostbeefmexic.jpeg";
@@ -93,19 +93,50 @@ const italianPizza = [
   },
 ];
 
-
 const FoodMenu = (props) => {
-  
-props.onContext(italianPizza)
+
+  const [OrderState, setOrderState] = useReducer(
+    (state, updates) => ({ ...state, ...updates }),
+    {
+      OrderAmount: 0,
+      OrderId: "",
+    }
+  );
+
+
+  const plusHandler = (id) => {
+    setOrderState({
+      OrderAmount: Number(OrderState.OrderAmount + 1),
+      OrderId: id,
+    });
+  };
+
+  const resetHandler = (id) => {
+    setOrderState({ OrderAmount:0, OrderId: "" });
+    
+  };
+
+  const minusHandler = (id) => {
+    setOrderState({
+      OrderAmount: Number(OrderState.OrderAmount - 1),
+      OrderId: id,
+    });
+  };
+
+  const mamad = (id) => {
+    console.log(id);
+  };
 
   return (
     <>
-      <div className={`${styles.FoodMenu} mt-5 `}>
+    <p>{OrderState.OrderAmount}</p>
+    <p>{OrderState.OrderId}</p>
+      <div className={`${styles.FoodMenu} mt-5 `} >
         <p className="mt-5 text-center">پیتزا ایتالیایی</p>
         <div className="container text-center">
           <div className="row row-cols-2">
             {italianPizza.map((item) => (
-              <div key={item.id} className={`${styles.foodCard} p-0 col`}>
+              <div key={item.id} className={`${styles.foodCard} p-0 col`} onClick={()=> {mamad(item.id)}}>
                 <div className="d-flex py-3 pe-2">
                   <div className="d-flex flex-column ms-1 col-7">
                     <span className={`${styles.foodTitle} mb-2`}>
@@ -127,7 +158,13 @@ props.onContext(italianPizza)
                     <span>{`${item.price} ${item.currency}`}</span>
                   </div>
                   <div className="ms-2">
-                    <ShoppingButton item={item} />
+                    <ShoppingButton
+                      item={item}
+                      OrderState={OrderState.OrderAmount}
+                      onPlusHandler={plusHandler}
+                      onResetHandler={resetHandler}
+                      onMinusHandler={minusHandler}
+                    />
                   </div>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBasketShopping,
@@ -9,10 +9,8 @@ import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import "./shoppingBag.scss";
 import ShoppingButton from "./shoppingButton";
 import OrderContext from "../../../context/selectedFood-context";
-import { useContext } from "react";
 
-const ShoppingBag = () => {
-  const ctx = useContext(OrderContext);
+const ShoppingBag = (props) => {
   return (
     <>
       <div className=" d-none shoppingBag mt-5 d-flex flex-column justify-content-center align-items-center">
@@ -33,7 +31,7 @@ const ShoppingBag = () => {
         </div>
         <div className="row selectedFood mt-2">
           <div className="col d-flex flex-column">
-            <span>{ctx}</span>
+            <span>{}</span>
             <div className="d-flex justify-content-between my-3">
               <span>۲۰۲,۰۰۰ تومان</span>
               <ShoppingButton />

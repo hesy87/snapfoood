@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import OrderProvider from "../../context/OrderContextProvider";
 import "./body.scss";
 import BreadCrumb from "./breadcrumb/breadcrumb";
 import MenuBar from "./menuBar/menuBar";
@@ -12,7 +13,7 @@ import CourierPrice from "./courier/courierPrice";
 const Body = (props) => {
 
   return (
-    <>
+    <OrderProvider>
       <BreadCrumb />
       <div className="container-xxl">
         <div className="row">
@@ -30,7 +31,7 @@ const Body = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </OrderProvider>
   );
 };
 

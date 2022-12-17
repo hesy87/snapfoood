@@ -9,6 +9,7 @@ import choritso from "../../img/foodMenu/choritsoitalia.jpeg";
 import vegetable from "../../img/foodMenu/vegetableitalia.jpeg";
 import margarita from "../../img/foodMenu/margaritaitalia.jpeg";
 import ShoppingButton from "../shoppingBag/shoppingButton";
+import ShoppingForm from "../shoppingBag/shoppingFrom";
 
 const italianPizza = [
   {
@@ -103,7 +104,6 @@ const FoodMenu = (props) => {
     }
   );
 
-
   const plusHandler = (id) => {
     setOrderState({
       OrderAmount: Number(OrderState.OrderAmount + 1),
@@ -123,10 +123,6 @@ const FoodMenu = (props) => {
     });
   };
 
-  const mamad = (id) => {
-    console.log(id);
-  };
-
   return (
     <>
     <p>{OrderState.OrderAmount}</p>
@@ -136,7 +132,7 @@ const FoodMenu = (props) => {
         <div className="container text-center">
           <div className="row row-cols-2">
             {italianPizza.map((item) => (
-              <div key={item.id} className={`${styles.foodCard} p-0 col`} onClick={()=> {mamad(item.id)}}>
+              <div key={item.id} className={`${styles.foodCard} p-0 col`}>
                 <div className="d-flex py-3 pe-2">
                   <div className="d-flex flex-column ms-1 col-7">
                     <span className={`${styles.foodTitle} mb-2`}>
@@ -158,13 +154,14 @@ const FoodMenu = (props) => {
                     <span>{`${item.price} ${item.currency}`}</span>
                   </div>
                   <div className="ms-2">
-                    <ShoppingButton
+                    {/* <ShoppingButton
                       item={item}
                       OrderState={OrderState.OrderAmount}
                       onPlusHandler={plusHandler}
                       onResetHandler={resetHandler}
                       onMinusHandler={minusHandler}
-                    />
+                    /> */}
+                    <ShoppingForm />
                   </div>
                 </div>
               </div>

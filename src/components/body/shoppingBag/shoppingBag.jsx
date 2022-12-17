@@ -11,6 +11,11 @@ import ShoppingButton from "./shoppingButton";
 import OrderContext from "../../../context/selectedFood-context";
 
 const ShoppingBag = (props) => {
+  const ctx = useContext(OrderContext)
+  const numberOfOrderItems = ctx.items.reduce((curNumber,item)=>{
+    return curNumber + item.amount ;
+  },0);
+
   return (
     <>
       <div className=" d-none shoppingBag mt-5 d-flex flex-column justify-content-center align-items-center">
@@ -22,7 +27,7 @@ const ShoppingBag = (props) => {
           <div className="col d-flex justify-content-between">
             <div>
               <span>سبد خرید</span>
-              <span className="me-2"></span>
+              <span className="me-2">{numberOfOrderItems}</span>
             </div>
             <button className="trash">
               <FontAwesomeIcon icon={faTrashCan} />

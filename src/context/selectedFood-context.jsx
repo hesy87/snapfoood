@@ -1,7 +1,12 @@
-import {createContext} from "react";
+import React, {createContext} from "react";
 
   
-const OrderContext = createContext();
+const OrderContext = React.createContext({
+    items:[],
+    totalAmount:0,
+    addItem: (item) => {},
+    removeItem: (item) => {}
+});
 
 export default OrderContext;
 

@@ -7,16 +7,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import "./shoppingBag.scss";
-// import ShoppingButton from "./shoppingButton";
 import OrderContext from "../../../context/selectedFood-context";
 
 const ShoppingBag = (props) => {
-  const ctx = useContext(OrderContext)
-  const numberOfOrderItems = ctx.items.reduce((curNumber,item)=>{
-    return curNumber + item.amount ;
-  },0);
 
-  const totalAmount = ctx.totalAmount.toFixed(2)
+  const {items,setItems} =  useContext(OrderContext)
 
   return (
     <>
@@ -29,19 +24,19 @@ const ShoppingBag = (props) => {
           <div className="col d-flex justify-content-between">
             <div>
               <span>سبد خرید</span>
-              <span className="me-2">{numberOfOrderItems}</span>
+              <span className="me-2">{items}</span>
             </div>
             <button className="trash">
               <FontAwesomeIcon icon={faTrashCan} />
             </button>
           </div>
         </div>
-        <ul>
+        {/* <ul>
           {ctx.items.map((item)=> (
             <li>{item.name}</li>
           ))}
-        </ul>
-        <p>{totalAmount}</p>
+        </ul> */}
+        <p>{}</p>
         {/* <div className="row selectedFood mt-2">
           <div className="col d-flex flex-column">
             <span>{}</span>

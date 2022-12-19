@@ -4,71 +4,12 @@
 }
 
 .FoodMenu {
-  font-family: "vazir-regular";
-  .foodCard {
+    font-family: "vazir-regular";
     border: 0.0625rem solid #ebedf0;
-  }
   border-style: 0.0625rem solid #ebedf0;
   border: 0.0625rem solid #ebedf0;
   background-color: white;
   border-radius: 16px;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
-  & .foodTitle {
-    font-family: "vazir-regular";
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    width: auto;
-    height: auto;
-    padding: 0px;
-    margin: 0px;
-    display: inline-block;
-    color: rgb(58, 61, 66);
-    text-align: initial;
-  }
-  & .foodDiscription {
-    margin-top: 0.5rem;
-    word-break: break-word;
-    font-family: "vazir-regular";
-    font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    width: auto;
-    height: auto;
-    padding: 0px;
-    margin: 0px;
-    display: inline-block;
-    color: rgb(166, 170, 173);
-    text-align: initial;
-  }
-  & img {
-    border-radius: 0.5rem;
-    width: 112px;
-    aspect-ratio: auto 112 / 112;
-    height: 112px;
-    border-style: none;
-  }
-  & .addToCard {
-    &:hover {
-      background-color: rgb(249, 250, 251);
-      transition: all 0.3s ease 0s;
-    }
-    & > div > span {
-      font-family: "vazir-regular";
-      font-weight: 400;
-      font-size: 0.75rem;
-      line-height: 1rem;
-      width: auto;
-      height: auto;
-      padding: 0px;
-      margin: 0px;
-      display: inline-block;
-      color: rgb(58, 61, 66);
-      text-align: initial;
-    }
-    & > div > span:nth-child(2) {
-      font-weight: bold;
-    }
-    }
   }

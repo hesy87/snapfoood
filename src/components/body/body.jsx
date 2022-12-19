@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import OrderProvider from "../../context/OrderContextProvider";
+import React, { useState } from "react";
+// import OrderProvider from "../../context/OrderContextProvider";
 import "./body.scss";
 import BreadCrumb from "./breadcrumb/breadcrumb";
 import MenuBar from "./menuBar/menuBar";
@@ -8,12 +8,14 @@ import ReasturantIntroduction from "./resturantIntroduction/reasturantIntroducti
 import ShoppingBag from "./shoppingBag/shoppingBag";
 import DeliveryTime from "./deliveryTime/deliveryTime";
 import CourierPrice from "./courier/courierPrice";
+import OrderContext from "../../context/selectedFood-context";
 
 
 const Body = (props) => {
-
+  const [items,setItems] = useState([])
+  const [totalAmount,setTotalAmount] = useState()
   return (
-    <OrderProvider>
+    <OrderContext.Provider value={{ items,setItems, totalAmount,setTotalAmount }}>
       <BreadCrumb />
       <div className="container-xxl">
         <div className="row">
@@ -22,7 +24,7 @@ const Body = (props) => {
             <MenuBar />
           </div>
           <div className="col-6">
-            <FoodMenu/>
+            <FoodMenu />
           </div>
           <div className="col-3">
             <DeliveryTime />
@@ -31,7 +33,7 @@ const Body = (props) => {
           </div>
         </div>
       </div>
-    </OrderProvider>
+    </OrderContext.Provider>
   );
 };
 

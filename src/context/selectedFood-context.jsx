@@ -1,12 +1,7 @@
 import React, {createContext} from "react";
 
   
-const OrderContext = React.createContext({
-    items:[],
-    totalAmount:0,
-    addItem: (item) => {},
-    removeItem: (item) => {}
-});
+const OrderContext = React.createContext(null);
 
 export default OrderContext;
 

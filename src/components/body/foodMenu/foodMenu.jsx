@@ -101,7 +101,7 @@ const FoodMenu = (props) => {
         <p className="mt-5 text-center">پیتزا ایتالیایی</p>
         <div className="container text-center">
           <div className="row row-cols-2">
-            <FoodCard italianPizza={italianPizza}/>
+            <FoodCard italianPizza={italianPizza} id={italianPizza.id}/>
           </div>
         </div>
       </div>

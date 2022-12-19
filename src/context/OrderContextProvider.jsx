@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 import OrderContext from "./selectedFood-context";
 
@@ -38,15 +38,24 @@ const OrderProvider = (props) => {
   //     id: id,
   //   });
   // };
+  const [items, setItems] = useState({});
+  const [OrderState,setOrderState] = useState({OrderAmount:0 , FoodName:'',FoodPrice:0})
 
-  const OrderContext2 = {
-    items: [],
-    totalAmount: 0,
-    // addItem: addItemToCardHandler,
-    // removeItem: removeItemFromCardHandler,
+  const onPlusHandler = (Name, price) => {
+    setOrderState({
+      OrderAmount: Number(OrderState.OrderAmount) + 1,
+      FoodName: Name,
+      FoodPrice: Number(price),
+    });
   };
+  // const OrderContext2 = {
+  //   items: {},
+  //   OrderAmount: 0,
+  //   // addItem: addItemToCardHandler,
+  //   // removeItem: removeItemFromCardHandler,
+  // };
   return (
-    <OrderContext.Provider value={OrderContext2}>
+    <OrderContext.Provider value={{ items, setItems,onPlusHandler,OrderState }}>
       {props.children}
     </OrderContext.Provider>
   );

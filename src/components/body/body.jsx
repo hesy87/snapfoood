@@ -9,13 +9,14 @@ import ShoppingBag from "./shoppingBag/shoppingBag";
 import DeliveryTime from "./deliveryTime/deliveryTime";
 import CourierPrice from "./courier/courierPrice";
 import OrderContext from "../../context/selectedFood-context";
-
+import OrderProvider from "../../context/OrderContextProvider";
 
 const Body = (props) => {
-  const [items,setItems] = useState([])
-  const [totalAmount,setTotalAmount] = useState()
+
+  
+
   return (
-    <OrderContext.Provider value={{ items,setItems, totalAmount,setTotalAmount }}>
+    <OrderProvider>
       <BreadCrumb />
       <div className="container-xxl">
         <div className="row">
@@ -33,7 +34,7 @@ const Body = (props) => {
           </div>
         </div>
       </div>
-    </OrderContext.Provider>
+    </OrderProvider>
   );
 };
 

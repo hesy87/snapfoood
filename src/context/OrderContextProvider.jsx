@@ -39,15 +39,8 @@ const OrderProvider = (props) => {
   //   });
   // };
   const [items, setItems] = useState({});
-  const [OrderState,setOrderState] = useState({OrderAmount:0 , FoodName:'',FoodPrice:0})
+  const [OrderState,SetOnPlusHandler] = useState({OrderAmount:{OrderAmount:0,FoodId:0} , FoodName:'',FoodPrice:0})
 
-  const onPlusHandler = (Name, price) => {
-    setOrderState({
-      OrderAmount: Number(OrderState.OrderAmount) + 1,
-      FoodName: Name,
-      FoodPrice: Number(price),
-    });
-  };
   // const OrderContext2 = {
   //   items: {},
   //   OrderAmount: 0,
@@ -55,7 +48,7 @@ const OrderProvider = (props) => {
   //   // removeItem: removeItemFromCardHandler,
   // };
   return (
-    <OrderContext.Provider value={{ items, setItems,onPlusHandler,OrderState }}>
+    <OrderContext.Provider value={{ items, setItems,OrderState,SetOnPlusHandler }}>
       {props.children}
     </OrderContext.Provider>
   );

@@ -8,31 +8,38 @@ import OrderContext from "../../../context/selectedFood-context";
 const ShoppingButton = (props) => {
 // const [OrderState,setOrderState] = useState({OrderAmount:0 , FoodName:'',FoodPrice:0})
 
-const { items, setItems,OrderState,onPlusHandler } = useContext(OrderContext);
+const { items, setItems,OrderState,SetOnPlusHandler } = useContext(OrderContext);
 
 // const onResetHandler =(Name,price) => {
 //   setOrderState({OrderAmount : Number(0) ,FoodName:Name,FoodPrice:Number(price)})
 // }
 
-// const onPlusHandler = (Name,price) => {
-//   setOrderState({OrderAmount : Number(OrderState.OrderAmount)+1,FoodName:Name,FoodPrice:Number(price)})
-// }
+const onPlusHandler = (id,Name,price) => {
+  SetOnPlusHandler({
+    OrderAmount : {
+      OrderAmount :Number(OrderState.OrderAmount.OrderAmount)+1,
+      FoodId : id,
+    },
+    FoodName:Name,
+    FoodPrice:Number(price)
+  })
+}
 
 // const onMinusHandler = (Name,price) => {
 //   setOrderState({OrderAmount : Number(OrderState.OrderAmount)-1,FoodName:Name,FoodPrice:Number(price)})
 // }
   return (
     <>
-      {OrderState.OrderAmount === 0 ? (
-        <button id={props.items.id}
+      {OrderState.OrderAmount.OrderAmount === 0   ? (
+        <button
           onClick={() => {
-            onPlusHandler(props.items.name,props.items.price);
+            onPlusHandler(props.items.id, props.items.name,props.items.price);
           }}
           className={styles.Add}
         >
           افزودن
         </button>
-      ) : OrderState.OrderAmount === 1 ? (
+      ) : OrderState.OrderAmount.OrderAmount === 1 ? (
         <div className={styles.ShoppingButton}>
           <button
             className={styles.removeShop}
@@ -43,11 +50,11 @@ const { items, setItems,OrderState,onPlusHandler } = useContext(OrderContext);
             <FontAwesomeIcon icon={faTrashCan} />
           </button>
 
-          <span className="mx-3">{OrderState.OrderAmount}</span>
+          <span className="mx-3">{OrderState.OrderAmount.OrderAmount}</span>
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              onPlusHandler(props.items.name,props.items.price);
+              onPlusHandler(props.items.id,props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />
@@ -64,11 +71,11 @@ const { items, setItems,OrderState,onPlusHandler } = useContext(OrderContext);
             <FontAwesomeIcon icon={faMinus} />
           </button>
 
-          <span className="mx-3">{OrderState.OrderAmount}</span>
+          <span className="mx-3">{OrderState.OrderAmount.OrderAmount}</span>
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              onPlusHandler(props.items.name,props.items.price);
+              onPlusHandler(props.items.id,props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />

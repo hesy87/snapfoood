@@ -29,7 +29,7 @@ const ShoppingBag = (props) => {
             <div className="col d-flex justify-content-between">
               <div>
                 <span>سبد خرید</span>
-                <span className="me-2">{OrderState.OrderAmount}</span>
+                <span className="me-2">{OrderState.OrderAmount.OrderAmount}</span>
               </div>
               <button className="trash">
                 <FontAwesomeIcon icon={faTrashCan} />

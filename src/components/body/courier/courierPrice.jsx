@@ -6,8 +6,8 @@ const CourierPrice = () => {
   return (
     <div className={`${styles.CourierPrice} py-3 mt-3 d-flex justify-content-around`}>
       <FontAwesomeIcon className={styles.truck} icon={faTruck} />
-      <span className={styles.courierOption}>پیک فروشنده</span>
-      <span className={styles.courierPrice}>رایگان</span>
+      <span className={styles.courierOption}>Seller Courier</span>
+      <span className={styles.courierPrice}>Free</span>
     </div>
   );
 };

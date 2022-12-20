@@ -1,7 +1,9 @@
 @import './variable';
 
 .NavbarAdress{
+    cursor: pointer;
  & .chevron {
         color: $main-color;
+        
     }
 }

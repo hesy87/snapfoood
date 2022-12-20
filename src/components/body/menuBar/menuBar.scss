@@ -6,6 +6,7 @@
 .MenuBar {
   & p {
     font-size: 0.875rem;
+    font-weight: 550;
     font-family: "vazir-regular";
     width: auto;
     height: auto;
@@ -17,7 +18,7 @@
       font-weight: 700;
       color: rgb(58, 61, 66);
       font-size: 0.875rem;
-      border-left: 0.125rem solid rgb(58, 61, 66);
+      border-right: 0.125rem solid rgb(58, 61, 66);
       cursor: pointer;
     }
   }

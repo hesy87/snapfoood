@@ -14,7 +14,7 @@ const Navbar = () => {
                 <div className='col-1 mx-2 my-1'><img src={logo} alt="logo"/></div>
                 <div className='col-3'><NavbarAdress/></div>
                 <div className='col-5'><NavbarSearch/></div>
-                <div className='col-1 text-start'><Profile /></div>
+                <div className='col-1 text-end'><Profile /></div>
                 <div className='col-2 mt-2'><OrderHistory/></div>
             </div>
         </div>

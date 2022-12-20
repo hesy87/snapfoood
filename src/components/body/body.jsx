@@ -8,12 +8,9 @@ import ReasturantIntroduction from "./resturantIntroduction/reasturantIntroducti
 import ShoppingBag from "./shoppingBag/shoppingBag";
 import DeliveryTime from "./deliveryTime/deliveryTime";
 import CourierPrice from "./courier/courierPrice";
-import OrderContext from "../../context/selectedFood-context";
 import OrderProvider from "../../context/OrderContextProvider";
 
 const Body = (props) => {
-
-  
 
   return (
     <OrderProvider>

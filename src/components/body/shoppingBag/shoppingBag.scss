@@ -1,11 +1,13 @@
 @font-face {
-  font-family: "vazir-regular";
-  src: url("../../../fonts/vazir-font-v16.1.0/Vazir.woff");
+  font-family: "IranSans-regular";
+  src: url("../../../fonts/IRANSansWeb.woff2");
 }
-
+.font1 {
+  font-family: "IranSans-regular";
+}
 .shoppingBag {
   & p {
-    font-family: "vazir-regular";
+    font-family: "IranSans-regular";
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -23,7 +25,7 @@
 }
 
 .shoppingBagFull {
-  font-family: "vazir-regular";
+  font-family: "IranSans-regular";
   box-sizing: border-box;
   margin-top: 0.5rem;
   padding: 1rem 1rem 0.75rem;
@@ -65,6 +67,7 @@
     font-weight: 700;
   }
   & .selectedFood {
+
     & div span {
       font-weight: 700;
       font-size: 0.875rem;
@@ -129,7 +132,7 @@
       resize: vertical;
     }
     & .payBtn {
-      font-family: "vazir-regular";
+      font-family: "IranSans-regular";
       -webkit-box-pack: center;
       justify-content: center;
       -webkit-box-align: center;

@@ -5,8 +5,8 @@ import './orderHistory.scss'
 const OrderHistory = () => {
   return (
     <div className='OrderHistory d-flex justify-content-center'>
+      <h6 className="me-3 fs-5">Orders</h6>
       <FontAwesomeIcon className="fs-5" icon={faRectangleList} />
-      <h6 className="me-3">سفارش ها</h6>
     </div>
   );
 };

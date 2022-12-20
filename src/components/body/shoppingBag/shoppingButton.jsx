@@ -11,7 +11,7 @@ const [OrderAmountShow,setOrderAmountShow] = useState(0)
 
 const { OrderState,SetOnPlusHandler} = useContext(OrderContext);
 
-const onPlusHandler = (id,Name,price) => {
+const onPlusHandler = (Name,price) => {
   setOrderAmountShow(Number(OrderAmountShow)+1)
   SetOnPlusHandler({
     OrderAmount : Number(OrderState.OrderAmount)+1,
@@ -19,7 +19,7 @@ const onPlusHandler = (id,Name,price) => {
     FoodPrice:Number(price)
   })
 }
-const onMinusHandler = (id,Name,price) => {
+const onMinusHandler = (Name,price) => {
   setOrderAmountShow(Number(OrderAmountShow)-1)
   SetOnPlusHandler({
     OrderAmount : Number(OrderState.OrderAmount)-1,
@@ -27,7 +27,7 @@ const onMinusHandler = (id,Name,price) => {
     FoodPrice:Number(price)
   })
 }
-const onResetHandler = (id,Name,price) => {
+const onResetHandler = (Name,price) => {
   setOrderAmountShow(0)
   SetOnPlusHandler({
     OrderAmount : 0,
@@ -41,18 +41,18 @@ const onResetHandler = (id,Name,price) => {
       {OrderAmountShow === 0  ? (
         <button
           onClick={() => {
-            onPlusHandler(props.items.id, props.items.name,props.items.price);
+            onPlusHandler(props.items.name,props.items.price);
           }}
           className={styles.Add}
         >
-          افزودن
+          Order
         </button>
       ) : OrderAmountShow === 1 ? (
         <div className={styles.ShoppingButton}>
           <button
             className={styles.removeShop}
             onClick={() => {
-              onResetHandler(props.items.id,props.items.name,props.items.price);
+              onResetHandler(props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faTrashCan} />
@@ -62,7 +62,7 @@ const onResetHandler = (id,Name,price) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              onPlusHandler(props.items.id, props.items.name,props.items.price);
+              onPlusHandler(props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />
@@ -73,7 +73,7 @@ const onResetHandler = (id,Name,price) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              onMinusHandler(props.items.id,props.items.name,props.items.price);
+              onMinusHandler(props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faMinus} />
@@ -83,7 +83,7 @@ const onResetHandler = (id,Name,price) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              onPlusHandler(props.items.id,props.items.name,props.items.price);
+              onPlusHandler(props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />

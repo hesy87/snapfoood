@@ -22,7 +22,7 @@ const ShoppingBag = (props) => {
             className="basket me-3 mt-3"
             icon={faBasketShopping}
           />
-          <p className="mt-3">سبد خرید شما خالی است!</p>
+          <p className="mt-3">Your Shopping Bag is Empty !</p>
         </div>
       ) : (
         <div className="container shoppingBagFull">
@@ -44,7 +44,7 @@ const ShoppingBag = (props) => {
             <div className="col d-flex flex-column">
               <span>{OrderState.FoodName}</span>
               <div className="d-flex justify-content-between my-3">
-                <span>{OrderState.FoodPrice*OrderState.OrderAmount}</span>
+                <span className="font1">{OrderState.FoodPrice*OrderState.OrderAmount}</span>
                 <ShoppingButton />
               </div>
               <div className="bill">

@@ -1,14 +1,7 @@
 import styles from "./foodCard.module.scss";
-import { useContext, useState } from "react";
-import OrderContext from "../../../context/selectedFood-context";
 import ShoppingButton from "../shoppingBag/shoppingButton";
 
 const FoodCard = (props) => {
-  const { items, setItems } = useContext(OrderContext);
-
-  const addToCardHandler = (amount) => {
-    setItems(amount);
-  };
 
   return (
     <>
@@ -32,9 +25,7 @@ const FoodCard = (props) => {
             </div>
             <div className="ms-2">
               <ShoppingButton
-                onAddToShoppingBag={addToCardHandler}
                 items={item}
-                id={item.id}
               />
             </div>
           </div>

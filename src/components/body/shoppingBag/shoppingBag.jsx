@@ -11,7 +11,8 @@ import OrderContext from "../../../context/selectedFood-context";
 import ShoppingButton from "./shoppingButton";
 
 const ShoppingBag = (props) => {
-  const { items, setItems,onPlusHandler,OrderState } = useContext(OrderContext);
+  const { OrderState } =
+    useContext(OrderContext);
 
   return (
     <>
@@ -29,7 +30,9 @@ const ShoppingBag = (props) => {
             <div className="col d-flex justify-content-between">
               <div>
                 <span>سبد خرید</span>
-                <span className="me-2">{OrderState.OrderAmount.OrderAmount}</span>
+                <span className="me-2">
+                  {OrderState.OrderAmount}
+                </span>
               </div>
               <button className="trash">
                 <FontAwesomeIcon icon={faTrashCan} />
@@ -41,7 +44,7 @@ const ShoppingBag = (props) => {
             <div className="col d-flex flex-column">
               <span>{OrderState.FoodName}</span>
               <div className="d-flex justify-content-between my-3">
-                <span>{OrderState.FoodPrice}</span>
+                <span>{OrderState.FoodPrice*OrderState.OrderAmount}</span>
                 <ShoppingButton />
               </div>
               <div className="bill">

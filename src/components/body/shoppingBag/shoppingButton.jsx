@@ -6,31 +6,39 @@ import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import OrderContext from "../../../context/selectedFood-context";
 
 const ShoppingButton = (props) => {
-// const [OrderState,setOrderState] = useState({OrderAmount:0 , FoodName:'',FoodPrice:0})
 
-const { items, setItems,OrderState,SetOnPlusHandler } = useContext(OrderContext);
+const [OrderAmountShow,setOrderAmountShow] = useState(0)
 
-// const onResetHandler =(Name,price) => {
-//   setOrderState({OrderAmount : Number(0) ,FoodName:Name,FoodPrice:Number(price)})
-// }
+const { OrderState,SetOnPlusHandler} = useContext(OrderContext);
 
 const onPlusHandler = (id,Name,price) => {
+  setOrderAmountShow(Number(OrderAmountShow)+1)
   SetOnPlusHandler({
-    OrderAmount : {
-      OrderAmount :Number(OrderState.OrderAmount.OrderAmount)+1,
-      FoodId : id,
-    },
+    OrderAmount : Number(OrderState.OrderAmount)+1,
+    FoodName:Name,
+    FoodPrice:Number(price)
+  })
+}
+const onMinusHandler = (id,Name,price) => {
+  setOrderAmountShow(Number(OrderAmountShow)-1)
+  SetOnPlusHandler({
+    OrderAmount : Number(OrderState.OrderAmount)-1,
+    FoodName:Name,
+    FoodPrice:Number(price)
+  })
+}
+const onResetHandler = (id,Name,price) => {
+  setOrderAmountShow(0)
+  SetOnPlusHandler({
+    OrderAmount : 0,
     FoodName:Name,
     FoodPrice:Number(price)
   })
 }
 
-// const onMinusHandler = (Name,price) => {
-//   setOrderState({OrderAmount : Number(OrderState.OrderAmount)-1,FoodName:Name,FoodPrice:Number(price)})
-// }
   return (
     <>
-      {OrderState.OrderAmount.OrderAmount === 0   ? (
+      {OrderAmountShow === 0  ? (
         <button
           onClick={() => {
             onPlusHandler(props.items.id, props.items.name,props.items.price);
@@ -39,22 +47,22 @@ const onPlusHandler = (id,Name,price) => {
         >
           افزودن
         </button>
-      ) : OrderState.OrderAmount.OrderAmount === 1 ? (
+      ) : OrderAmountShow === 1 ? (
         <div className={styles.ShoppingButton}>
           <button
             className={styles.removeShop}
             onClick={() => {
-              // onResetHandler(props.items.name,props.items.price);
+              onResetHandler(props.items.id,props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faTrashCan} />
           </button>
 
-          <span className="mx-3">{OrderState.OrderAmount.OrderAmount}</span>
+          <span className="mx-3">{OrderAmountShow}</span>
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              onPlusHandler(props.items.id,props.items.name,props.items.price);
+              onPlusHandler(props.items.id, props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faPlus} />
@@ -65,13 +73,13 @@ const onPlusHandler = (id,Name,price) => {
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {
-              // onMinusHandler(props.items.name,props.items.price);
+              onMinusHandler(props.items.id,props.items.name,props.items.price);
             }}
           >
             <FontAwesomeIcon icon={faMinus} />
           </button>
 
-          <span className="mx-3">{OrderState.OrderAmount.OrderAmount}</span>
+          <span className="mx-3">{OrderAmountShow}</span>
           <button
             className={styles.AddRemoveBtn}
             onClick={() => {

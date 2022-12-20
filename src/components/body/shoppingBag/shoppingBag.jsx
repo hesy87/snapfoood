@@ -29,7 +29,7 @@ const ShoppingBag = (props) => {
           <div className="row">
             <div className="col d-flex justify-content-between">
               <div>
-                <span>سبد خرید</span>
+                <span>Shapping Bag</span>
                 <span className="me-2">
                   {OrderState.OrderAmount}
                 </span>
@@ -49,37 +49,29 @@ const ShoppingBag = (props) => {
               </div>
               <div className="bill">
                 <div className="mt-3">
-                  <span>مجموع</span>
-                  <span>۱۰۲,۰۰۰ تومان</span>
+                  <span>Total</span>
+                  <span>102 €</span>
                 </div>
                 <div>
-                  <span>هزینه بسته‌بندی</span>
-                  <span>۶,۰۰۰ تومان</span>
-                </div>
-                <div>
-                  <span>مالیات</span>
-                  <span>رایگان</span>
-                </div>
-                <div>
-                  <span>هزینه ارسال</span>
-                  <span>رایگان</span>
+                  <span>Tax</span>
+                  <span>Free</span>
                 </div>
                 <div className="mb-3">
-                  <span>سود شما از این خرید</span>
-                  <span>۳۰,۰۰۰ تومان</span>
+                  <span>Delivery Cost</span>
+                  <span>Free</span>
                 </div>
               </div>
               <div className="pay">
                 <div className="d-flex justify-content-between mb-3">
-                  <span>قابل پرداخت</span>
-                  <span>۱۰۸,۰۰۰ تومان</span>
+                  <span>Total Price</span>
+                  <span>110 €</span>
                 </div>
                 <textarea
                   cols="30"
                   rows="3"
-                  placeholder="توضیحات سفارش..."
+                  placeholder="Order Comment..."
                 ></textarea>
-                <button className="payBtn">ثبت سفارش</button>
+                <button className="payBtn">Order</button>
               </div>
             </div>
           </div>

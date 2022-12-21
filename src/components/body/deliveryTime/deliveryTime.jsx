@@ -8,7 +8,6 @@ const DeliveryTime = () => {
     <div
       className={`${styles.DeliveryTime} bg-white mt-5 d-flex align-items-center justify-content-around`}
     >
-      <h1 className="text-3xl  underline">Hello world!</h1>
       <FontAwesomeIcon className={`${styles.clock} me-3`} icon={faClock} />
       <p>Delivery in Nearest Time</p>
       <FontAwesomeIcon

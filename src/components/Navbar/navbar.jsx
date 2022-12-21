@@ -4,10 +4,11 @@ import NavbarAdress from './navbarAdress';
 import NavbarSearch from './navbarSearch';
 import Profile from './profile'
 import OrderHistory from './orderHistory'
+import AddressProvider from './../../context/AddressContextProvider';
 
 const Navbar = () => {
     return ( 
-    <>
+    <AddressProvider>
     <div className={`container-fluid ${styles.Navbar} position-sticky`}>
         <div className="row">
             <div className="col d-flex justify-content-center align-items-center">
@@ -19,7 +20,7 @@ const Navbar = () => {
             </div>
         </div>
     </div>
-    </> );
+    </AddressProvider> );
 }
  
 export default Navbar;

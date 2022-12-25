@@ -5,7 +5,7 @@ import AddressContext from "./addressSelector-context";
 
 const AddressProvider = (props) => {
 
-  const [AddressState,SetAddressState] = useState({Title:'Home' , Address:'24 Banafshe Abazar ....'})
+  const [AddressState,SetAddressState] = useState({Title:'' , Address:''})
 
   return (
     <AddressContext.Provider value={{AddressState,SetAddressState }}>

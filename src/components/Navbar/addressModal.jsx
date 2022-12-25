@@ -8,27 +8,29 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { faPenToSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
 import AddressContext from "../../context/addressSelector-context";
+import { findIndex } from "lodash";
 
-const addressData = [
+let addressData = [
   { title: "Home", Address: "24 Banafshe Abazar ...." },
   { title: "Office", Address: "4 Hafez Valiasr ...." },
 ];
 
 const AddressModal = (props) => {
+  const [AddressData, setAddressData] = useState(addressData);
   const { AddressState, SetAddressState } = useContext(AddressContext);
   let [newAddress, setNewAddress] = useState({ title: "", Address: "" });
   const Address = useRef();
   const Title = useRef();
   const SetNewAddress = (e) => {
+    setShowInputEdit(false);
     e.preventDefault();
-    console.log(Title);
     if (Title.current.value !== "" && Address.current.value !== "") {
       newAddress = {
         title: Title.current.value,
         Address: Address.current.value,
       };
       setNewAddress(newAddress);
-      addressData.push(newAddress);
+      setAddressData([...AddressData, newAddress]);
       Title.current.value = null;
       Address.current.value = null;
     }
@@ -56,9 +58,29 @@ const AddressModal = (props) => {
   };
 
   const DeleteHandler = (item) => {
-    console.log(item);
+    setAddressData(
+      AddressData.filter(function (items) {
+        return items.title !== item.title;
+      })
+    );
   };
+  const [ShowInputEdit, setShowInputEdit] = useState(false);
+  const [EditItem,setEditItem] = useState()
 
+  const EditHandler = (item) => {
+    setShowInput();
+    setEditItem(item)
+    Title.current.value = item.title;
+    Address.current.value = item.Address;
+    setShowInputEdit(true);
+  };
+  const CloseEditSection = () => {
+    setShowInput("d-none");
+    const editItemIndex = AddressData.indexOf(EditItem)
+    AddressData[editItemIndex] = {title:EditItem.title , Address:EditItem.Address}
+    console.log(AddressData);
+    setAddressData(AddressData)
+  };
   return (
     <div className={`${styles.backdrop} ${props.display}`}>
       <div className={styles.modal}>
@@ -77,9 +99,9 @@ const AddressModal = (props) => {
               ></button>
             </div>
           </div>
-          {addressData.map((item) => (
+          {AddressData.map((item) => (
             <>
-              <div className={`row ms-1 ${styles.AddressEditor}`}>
+              <div className={`row ms-1 pb-0 ${styles.AddressEditor}`}>
                 <div className="col-1">
                   <FontAwesomeIcon icon={faCircle} />
                   <FontAwesomeIcon
@@ -92,9 +114,9 @@ const AddressModal = (props) => {
                     onhandleClose();
                     onSelectAddressHandler(item);
                   }}
-                  className="col-9"
-                >
-                  {item.Address}
+                  className="col-9 d-flex flex-column"
+                ><p className="fw-bold mb-1">{item.title}</p>
+                  <p>{item.Address}</p>
                 </div>
                 <button
                   className="col-1"
@@ -107,9 +129,14 @@ const AddressModal = (props) => {
                     icon={faTrashCan}
                   />
                 </button>
-                <div className="col-1">
+                <button
+                  className="col-1"
+                  onClick={() => {
+                    EditHandler(item);
+                  }}
+                >
                   <FontAwesomeIcon icon={faPenToSquare} />
-                </div>
+                </button>
               </div>
             </>
           ))}
@@ -130,12 +157,16 @@ const AddressModal = (props) => {
               <input ref={Title} type="text" />
               <label className="mt-2">Input Address</label>
               <input ref={Address} type="text" />
-              <button
-                onClick={CloseInputSection}
-                className="mt-3 btn btn-sm btn-primary"
-              >
-                Add
-              </button>
+              {ShowInputEdit === false ? (
+                <button
+                  onClick={CloseInputSection}
+                  className="mt-3 btn btn-sm btn-success"
+                >
+                  Add
+                </button>
+              ) : (
+                <button onClick={CloseEditSection} className="mt-3 btn btn-sm btn-success">Edit</button>
+              )}
             </form>
           </div>
         </div>

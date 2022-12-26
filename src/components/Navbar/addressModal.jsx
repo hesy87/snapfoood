@@ -8,7 +8,6 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { faPenToSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
 import AddressContext from "../../context/addressSelector-context";
-import { findIndex } from "lodash";
 
 let addressData = [
   { title: "Home", Address: "24 Banafshe Abazar ...." },
@@ -47,6 +46,7 @@ const AddressModal = (props) => {
       Title: item.title,
       Address: item.Address,
     });
+    setShowCheckedIcon(true);
   };
 
   const [ShowInput, setShowInput] = useState("d-none");
@@ -55,6 +55,7 @@ const AddressModal = (props) => {
   };
   const ShowInputSection = () => {
     setShowInput();
+    setShowInputEdit(false);
   };
 
   const DeleteHandler = (item) => {
@@ -65,22 +66,28 @@ const AddressModal = (props) => {
     );
   };
   const [ShowInputEdit, setShowInputEdit] = useState(false);
-  const [EditItem,setEditItem] = useState()
+  const [EditItem, setEditItem] = useState();
 
   const EditHandler = (item) => {
     setShowInput();
-    setEditItem(item)
+    setEditItem(item);
     Title.current.value = item.title;
     Address.current.value = item.Address;
     setShowInputEdit(true);
   };
   const CloseEditSection = () => {
     setShowInput("d-none");
-    const editItemIndex = AddressData.indexOf(EditItem)
-    AddressData[editItemIndex] = {title:EditItem.title , Address:EditItem.Address}
-    console.log(AddressData);
-    setAddressData(AddressData)
+    const editItemIndex = AddressData.indexOf(EditItem);
+    AddressData[editItemIndex] = {
+      title: Title.current.value,
+      Address: Address.current.value,
+    };
+    setAddressData(AddressData);
+    Title.current.value = null;
+    Address.current.value = null;
   };
+
+  const [ShowCheckedIcon, setShowCheckedIcon] = useState(false);
   return (
     <div className={`${styles.backdrop} ${props.display}`}>
       <div className={styles.modal}>
@@ -102,22 +109,27 @@ const AddressModal = (props) => {
           {AddressData.map((item) => (
             <>
               <div className={`row ms-1 pb-0 ${styles.AddressEditor}`}>
-                <div className="col-1">
-                  <FontAwesomeIcon icon={faCircle} />
-                  <FontAwesomeIcon
-                    className={`${styles.check} d-none`}
-                    icon={faCircleCheck}
-                  />
-                </div>
+                {/* <div className="col-1">
+                  {ShowCheckedIcon === false ? (
+                    <FontAwesomeIcon className={`mt-3`} icon={faCircle} />
+                  ) : (
+                    <FontAwesomeIcon
+                      className={`${styles.check} mt-3 `}
+                      icon={faCircleCheck}
+                    />
+                  )}
+                </div> */}
                 <div
                   onClick={() => {
                     onhandleClose();
                     onSelectAddressHandler(item);
                   }}
                   className="col-9 d-flex flex-column"
-                ><p className="fw-bold mb-1">{item.title}</p>
+                >
+                  <p className="fw-bold mb-1">{item.title}</p>
                   <p>{item.Address}</p>
                 </div>
+                <div className="col-1"></div>
                 <button
                   className="col-1"
                   onClick={() => {
@@ -157,17 +169,25 @@ const AddressModal = (props) => {
               <input ref={Title} type="text" />
               <label className="mt-2">Input Address</label>
               <input ref={Address} type="text" />
-              {ShowInputEdit === false ? (
+              {!ShowInputEdit && (
                 <button
                   onClick={CloseInputSection}
                   className="mt-3 btn btn-sm btn-success"
                 >
                   Add
                 </button>
-              ) : (
-                <button onClick={CloseEditSection} className="mt-3 btn btn-sm btn-success">Edit</button>
               )}
             </form>
+            <div className="row ms-1 d-flex flex-column align-items-start">
+              {ShowInputEdit && (
+                <button
+                  onClick={CloseEditSection}
+                  className="col-1 mt-3 btn btn-sm btn-success"
+                >
+                  Edit
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

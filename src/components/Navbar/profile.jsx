@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import "./profile.scss";
-import { useState } from "react";
-import { useEffect, useRef } from "react"
+import { useEffect, useRef,useState } from "react"
 
 const Profile = () => {
 
@@ -28,7 +27,6 @@ const Profile = () => {
   const DropDownHandler = () => {
     (ShowDropDown === true ? SetShowDropDown(false) : SetShowDropDown(true) )
   };
-console.log(ShowDropDown);
   return (
     <div className='profile' ref={ref}>
       <button onClick={DropDownHandler}>

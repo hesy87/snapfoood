@@ -1,12 +1,35 @@
 @font-face {
-    font-family: 'vazir-light';
-    src: url('../../fonts/vazir-font-v16.1.0/Vazir-Light.woff2');
+  font-family: "vazir-light";
+  src: url("../../fonts/vazir-font-v16.1.0/Vazir-Light.woff2");
 }
 
 .OrderHistory {
-    font-family: 'vazir-light' ;
-    & h6 {
-        font-size: 14px;
-        font-weight: bold;
-    }
+  font-family: "vazir-light";
+  margin-left: 3rem;
+  border: none;
+  background: transparent;
+  & h6 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  position: relative;
+}
+
+.modal1 {
+    top: 0;
+    font-family: "vazir-light";
+    position: absolute;
+    right: 0px;
+    width: 15vw;
+    min-width: 25rem;
+    min-height: 100vh;
+    padding: 0px 1rem;
+    overflow: auto;
+    border-radius: 0px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 8%) 0px 2px 8px, rgb(0 0 0 / 16%) 0px 8px 32px;
+    border-radius: 0.75rem;
+    animation: 0.3s cubic-bezier(0.4, 0, 0, 1.5) 0s 1 normal forwards running hmqzdU;
+    max-height: 90vh;
+    overflow: hidden;
 }

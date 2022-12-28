@@ -12,7 +12,7 @@ const Body = (props) => {
 
   return (
     <OrderProvider>
-      <BreadCrumb />
+      
       <div className="container-xxl">
         <div className="row">
           <div className="col-3">
